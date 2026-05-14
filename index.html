@@ -746,14 +746,14 @@ textarea.form-input { resize: vertical; min-height: 110px; }
       <p>Cuéntanos qué necesitas y te llamamos en menos de 5 minutos</p>
     </div>
     <div class="contact-wrap reveal">
-      <form class="contact-form" onsubmit="return false;">
+      <form class="contact-form" id="wa-form" onsubmit="return sendWhatsApp(event)">
         <h3>¿Hablamos?</h3>
-        <div class="form-hint">Te devolvemos la llamada hoy mismo sin compromiso.</div>
-        <input type="text" class="form-input" placeholder="Tu nombre" required>
-        <input type="tel" class="form-input" placeholder="Tu teléfono" required>
-        <input type="email" class="form-input" placeholder="Tu email (opcional)">
-        <textarea class="form-input" placeholder="Cuéntanos qué necesitas..."></textarea>
-        <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar mensaje</button>
+        <div class="form-hint">Rellena el formulario y te abrimos WhatsApp con tu consulta lista para enviar.</div>
+        <input type="text" id="wa-name" class="form-input" placeholder="Tu nombre" required>
+        <input type="tel" id="wa-phone" class="form-input" placeholder="Tu teléfono" required>
+        <input type="email" id="wa-email" class="form-input" placeholder="Tu email (opcional)">
+        <textarea id="wa-msg" class="form-input" placeholder="Cuéntanos qué necesitas..." required></textarea>
+        <button type="submit" class="btn-submit" style="background:#25d366;"><i class="fab fa-whatsapp"></i> Enviar por WhatsApp</button>
       </form>
       <div class="contact-info">
         <h3>Contacto directo</h3>
@@ -819,8 +819,29 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   <i class="fas fa-phone"></i> Llamar — +34 600 85 50 45
 </a>
 
-<!-- Minimal JS: scroll reveal + navbar scroll -->
+<!-- Minimal JS: scroll reveal + navbar scroll + WhatsApp form -->
 <script>
+// WhatsApp form handler
+function sendWhatsApp(e) {
+  e.preventDefault();
+  const name  = document.getElementById('wa-name').value.trim();
+  const phone = document.getElementById('wa-phone').value.trim();
+  const email = document.getElementById('wa-email').value.trim();
+  const msg   = document.getElementById('wa-msg').value.trim();
+  if (!name || !phone || !msg) return false;
+  const lines = [
+    'Hola, soy ' + name + '.',
+    'Teléfono: ' + phone,
+    email ? 'Email: ' + email : null,
+    '',
+    'Consulta:',
+    msg
+  ].filter(Boolean);
+  const text = encodeURIComponent(lines.join('\n'));
+  window.open('https://wa.me/34600855045?text=' + text, '_blank', 'noopener');
+  return false;
+}
+
 // Reveal on scroll
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
