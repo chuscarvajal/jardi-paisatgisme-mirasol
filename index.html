@@ -18,21 +18,21 @@ window.addEventListener('pageshow', __pllTop);
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700;800;900&display=swap");
-/* === DESIGN TOKENS — swap these per business === */
+/* === DESIGN TOKENS — Jardinería: forest green + warm gold === */
 :root {
-  --brand: #681da8;
-  --brand-light: #9045d0;
-  --brand-dark: #4a008a;
-  --accent: #0b57d0;
-  --accent-glow: rgba(11,87,208,0.4);
-  --ink: #0f172a;
-  --ink-light: #334155;
-  --ink-muted: #64748b;
+  --brand: #2d5f3f;
+  --brand-light: #5b9670;
+  --brand-dark: #1a3d28;
+  --accent: #c8a04b;
+  --accent-glow: rgba(200,160,75,0.4);
+  --ink: #142019;
+  --ink-light: #2f4438;
+  --ink-muted: #6b7d70;
   --surface: #ffffff;
-  --surface-alt: #f8fafc;
-  --surface-dark: #0f172a;
+  --surface-alt: #f4f7f2;
+  --surface-dark: #0f2418;
   --surface-card: rgba(255,255,255,0.03);
-  --border: #e2e8f0;
+  --border: #dde5dc;
   --border-light: rgba(255,255,255,0.08);
   --radius: 14px;
   --radius-sm: 8px;
@@ -102,7 +102,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero {
   position: relative; min-height: 92vh; display: flex; align-items: center;
   background: var(--surface-dark); overflow: hidden; padding-top: 72px;
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.4)), url("./assets/0e1a6147-5aa5-4c4a-8789-99c6405c7669_12_hero.webp"); background-size: cover; background-position: center;
+  background-image: linear-gradient(135deg, rgba(15,36,24,0.72), rgba(26,61,40,0.45)), url("./assets/0e1a6147-5aa5-4c4a-8789-99c6405c7669_12_hero.webp"); background-size: cover; background-position: center;
 }
 .hero::before {
   content: ''; position: absolute; top: -20%; right: -10%; width: 600px; height: 600px;
@@ -386,13 +386,13 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 .svc-img-wrap { position: relative; width: 100%; height: 160px; overflow: hidden; border-radius: 10px 10px 0 0; flex-shrink: 0; }
 .svc-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s cubic-bezier(0.2,0.8,0.2,1); }
 .svc-skew-wrap:hover .svc-img-wrap img { transform: scale(1.08); }
-.svc-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,15,0.85) 0%, rgba(10,10,15,0.25) 45%, transparent 80%); pointer-events: none; }
+.svc-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,36,24,0.85) 0%, rgba(15,36,24,0.25) 45%, transparent 80%); pointer-events: none; }
 .svc-skew-content > *:not(.svc-img-wrap) { padding-left: 28px; padding-right: 28px; }
 .svc-skew-icon { font-size: 24px; margin-top: -32px; position: relative; z-index: 3; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; margin-left: 28px !important; }
 .svc-skew-content h3 { font-size: 19px; font-weight: 700; margin-top: 4px; line-height: 1.25; }
 .svc-skew-content p { font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.5; flex-grow: 1; }
-.svc-skew-btn { display: inline-block; padding: 9px 18px; background: #fff; color: #0a0a0f; border-radius: 8px; font-size: 13px; font-weight: 700; width: fit-content; margin-top: 8px; transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease; }
-.svc-skew-btn:hover { background: #ffcf4d; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,207,77,0.25); }
+.svc-skew-btn { display: inline-block; padding: 9px 18px; background: #fff; color: var(--brand-dark); border-radius: 8px; font-size: 13px; font-weight: 700; width: fit-content; margin-top: 8px; transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease; }
+.svc-skew-btn:hover { background: var(--accent); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 20px var(--accent-glow); }
 
 .why-h2 { font-size: clamp(28px,3.5vw,36px); font-weight: 800; color: var(--ink); letter-spacing: -0.5px; margin-bottom: 12px; }
 
@@ -455,13 +455,13 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 </section>
 
 <!-- SERVICES -->
-<section class="section" id="servicios" style="background:#0a0a0f">
+<section class="section" id="servicios" style="background:linear-gradient(180deg,#0a1a12 0%,#0f2418 60%,#0a1a12 100%);position:relative;overflow:hidden;">
   <div class="container">
     <div class="section-header reveal" style="color:#fff"><span class="section-label" style="color:rgba(255,255,255,.6)">Nuestros servicios</span><h2 style="color:#fff">Qué hacemos</h2><p style="color:rgba(255,255,255,.7)">Soluciones profesionales para cada situación</p></div>
     <div class="svc-skew-grid">
       <div class="svc-skew-wrap reveal">
-        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#ffbc00,#ff0058)"></span>
-        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#ffbc00,#ff0058)"></span>
+        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#86efac,#166534)"></span>
+        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#86efac,#166534)"></span>
         <div class="svc-skew-content">
           <div class="svc-img-wrap">
             <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=700&q=70" alt="Reparación y resiembra de césped" loading="lazy">
@@ -473,8 +473,8 @@ textarea.form-input { resize: vertical; min-height: 110px; }
         </div>
       </div>
       <div class="svc-skew-wrap reveal">
-        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#03a9f4,#ff0058)"></span>
-        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#03a9f4,#ff0058)"></span>
+        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#d6c187,#5c4520)"></span>
+        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#d6c187,#5c4520)"></span>
         <div class="svc-skew-content">
           <div class="svc-img-wrap">
             <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=700&q=70" alt="Poda y tala controlada de árboles" loading="lazy">
@@ -486,8 +486,8 @@ textarea.form-input { resize: vertical; min-height: 110px; }
         </div>
       </div>
       <div class="svc-skew-wrap reveal">
-        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#4dff03,#00d0ff)"></span>
-        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#4dff03,#00d0ff)"></span>
+        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#f4a4b8,#8a3a5c)"></span>
+        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#f4a4b8,#8a3a5c)"></span>
         <div class="svc-skew-content">
           <div class="svc-img-wrap">
             <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=700&q=70" alt="Replantado y diseño de parterres con flores" loading="lazy">
@@ -499,8 +499,8 @@ textarea.form-input { resize: vertical; min-height: 110px; }
         </div>
       </div>
       <div class="svc-skew-wrap reveal">
-        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#ff6b6b,#ffd93d)"></span>
-        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#ff6b6b,#ffd93d)"></span>
+        <span class="svc-skew-panel" style="background:linear-gradient(315deg,#7dd3c0,#0d4f44)"></span>
+        <span class="svc-skew-glow" style="background:linear-gradient(315deg,#7dd3c0,#0d4f44)"></span>
         <div class="svc-skew-content">
           <div class="svc-img-wrap">
             <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=700&q=70" alt="Mantenimiento integral de jardines" loading="lazy">
@@ -786,7 +786,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 </section>
 
 <!-- FOOTER -->
-<footer style="background:#0f172a;color:rgba(255,255,255,0.85);padding:56px 24px 32px;margin-top:80px;">
+<footer style="background:linear-gradient(180deg,#0f2418 0%,#0a1a12 100%);color:rgba(255,255,255,0.85);padding:56px 24px 32px;margin-top:80px;">
   <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px;">
     <div>
       <h3 style="color:white;font-size:18px;font-weight:800;margin:0 0 16px;">Jardí Paisatgisme Mira-sol - Recherche Google</h3>
